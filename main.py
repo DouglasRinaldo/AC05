@@ -46,7 +46,8 @@ class RegisterForm(FlaskForm):
     def validate_username(self, username):
         existing_user_username = User.query.filter_by(username=username.data).first()
         if existing_user_username:
-            raise ValidationError("Esse apelido já existe. Por favor, escolha outro.")
+            flash("Esse apelido já existe. Por favor, escolha outro.")
+            raise ValidationError("Esse apelido já existe. Por favor, escolha outro.") 
 
 class LoginForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder":"Usuário"})
@@ -88,6 +89,8 @@ def login():
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
                 return redirect(url_for('Index'))
+            else:
+                flash("Senha errada, por favor digite novamente!")
     return render_template('login.html', form=form)
 
 @app.route('/logout', methods=['GET','POST'])

@@ -74,9 +74,9 @@
                   <td>{{row.itens_id}}</td>
                   <td>{{row.valor}}</td>
 
-                {% if row.pag_dinheiro|int != 0 %} 
-                <td><input type="checkbox" id="1"  checked disabled>{{row.pag_dinheiro}}</td>
-                {% endif %}
+               {% if row.pag_dinheiro|int != 0 %} 
+                  <td><input type="checkbox" id="1"  checked disabled>{{row.pag_dinheiro}}</td>
+               {% endif %}
                 {% if row.pag_dinheiro|int != 1 %}  
                   <td><input type="checkbox" id="1" disabled>{{row.pag_dinheiro}}</td>
                 {% endif %}
@@ -84,7 +84,7 @@
                   <td><input type="checkbox" id="2" checked disabled>{{row.pag_cartao}}</td>
                 {% endif %}
                 {% if row.pag_cartao|int != 1 %}
-                <td><input type="checkbox" id="2" disabled>{{row.pag_cartao}}</td>
+                  <td><input type="checkbox" id="2" disabled>{{row.pag_cartao}}</td>
                 {% endif %}  
 
                   <td>
